@@ -7,6 +7,7 @@ data = pd.read_csv("insurance.csv")
 pd.set_option('display.max_columns', None)
 
 #Check data for null values and display null count per column
+print("Null Values in Dataset")
 print(data.isnull().sum())
 
 # Sort the data by children, this allows for easier analysis later on
@@ -24,7 +25,7 @@ figureAge.show()
 #Create and present a graph representing the bmi
 # and insurance premium relationship
 figureBmi = px.scatter(data_frame = data, x="charges",y="bmi", size="age",
-                    trendline="ols", title = "Relationship Age and Insurance Premiums")
+                    trendline="ols", title = "Relationship BMI and Insurance Premiums")
 figureBmi.show()
 
 #Create and present a box chart representing the children, smoker,
@@ -37,4 +38,7 @@ figSmCh.show()
 figReg = px.box(data, x="region", y="charges")
 figReg.show()
 
-
+#Create and present a box chart representing the gender
+# and insurance premium relationship
+figSex = px.box(data, x="sex", y="charges")
+figSex.show()
